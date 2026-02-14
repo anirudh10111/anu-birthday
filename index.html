@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Anu</title>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:linear-gradient(135deg,#8e7cfb,#c3a6ff);
+  display:flex;
+  justify-content:center;
+  padding:20px;
+  color:white;
+}
+
+/* Card */
+.card{
+  width:95%;
+  max-width:420px;
+  background:rgba(255,255,255,0.2);
+  padding:20px;
+  border-radius:20px;
+  text-align:center;
+}
+
+/* Slideshow */
+.slideshow{
+  width:100%;
+  height:60vh; /* 60% of screen height */
+  max-height:500px;
+  border-radius:15px;
+  overflow:hidden;
+  margin:15px 0;
+}
+
+.slideshow img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+
+/* Button */
+button{
+  padding:14px 20px;
+  border:none;
+  border-radius:25px;
+  font-size:16px;
+  cursor:pointer;
+  background:white;
+  color:#6a4bc4;
+  font-weight:bold;
+}
+
+/* Hidden Message */
+.message{
+  display:none;
+  margin-top:20px;
+  font-size:16px;
+  line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🎉 Happy Birthday Anu 🎂</h1>
+<p>A special surprise is waiting for you ✨</p>
+
+<div class="slideshow">
+<img id="slide" src="https://picsum.photos/400/300?1">
+</div>
+
+<button onclick="showMessage()">Start Celebration 🎁</button>
+
+<!-- Message -->
+<div class="message" id="msg">
+  <h3>🎂 Hey mawa 💙</h3>
+
+  You are truly special to me.<br>
+  Your friendship brings happiness 😊<br><br>
+
+  May this year give you success,
+  Ee year mandhey, Ee year elagaina job kodthunnam.
+  love and big achievements ✨<br><br>
+
+  Keep smiling always!<br><br>
+
+  🎉 Happy Birthday Mawa 🎉<br><br>
+
+  — Anirudh
+</div>
+
+</div>
+
+<script>
+
+/* Slideshow */
+let imgs=[
+  "images/IMG_1058.jpg",
+  "images/IMG_1091.jpg",
+  "images/IMG_3579.jpg"
+];
+
+let i=0;
+setInterval(()=>{
+  i=(i+1)%imgs.length;
+  document.getElementById("slide").src=imgs[i];
+},2000);
+
+/* Button Action */
+function showMessage(){
+
+  // Show text
+  document.getElementById("msg").style.display="block";
+
+  // Confetti 🎉
+  confetti({
+    particleCount:150,
+    spread:90,
+    origin:{y:0.6}
+  });
+
+  // Auto scroll down
+  document.getElementById("msg").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+</script>
+
+</body>
+</html>
